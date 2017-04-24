@@ -13,7 +13,21 @@
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
+;;scrolling
+;; scroll one line at a time (less "jumpy" than defaults)
 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+
+;;font
+(custom-set-faces
+ '(default ((t (:height 150 :family "Menlo"))))
+ )
 ;;----------------------------------------------------------------------------
 ;; Temporarily reduce garbage collection during startup
 ;;----------------------------------------------------------------------------
@@ -161,6 +175,8 @@
 
 
 (provide 'init)
+;; load theme
+(load-theme 'sanityinc-solarized-light)
 
 ;; Local Variables:
 ;; coding: utf-8
